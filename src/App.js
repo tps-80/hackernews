@@ -16,6 +16,13 @@ const list = [
     num_comments: 2,
     points: 5,
     objectID: 1,
+  }, {
+    title: 'Dances with Wolves',
+    url: 'https://redux.js.org/',
+    author: 'John Johnnson',
+    num_comments: 2,
+    points: 9,
+    objectID: 2,
   },
 ]
 
@@ -56,7 +63,7 @@ class App extends Component {
 
   render() {
     const { searchTerm, list } = this.state;
-  console.log(this.state.searchTerm);
+
     return (
       <div className="page">
         <div className="interactions">
