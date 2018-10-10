@@ -48,13 +48,15 @@ class App extends Component {
     const { searchTerm, list } = this.state;
 
     return (
-      <div className="App">
-        <Search
-          value={searchTerm}
-          onChange={this.onSearchChange}
-        >
-          Search
-        </Search>
+      <div className="page">
+        <div className="interactions">
+          <Search
+            value={searchTerm}
+            onChange={this.onSearchChange}
+          >
+            Search
+          </Search>
+        </div>
         <Table
           list={list}
           pattern={searchTerm}
@@ -84,17 +86,20 @@ const Search = ({ value, onChange, children }) =>
   </form>
 
 const Table = ({ list, pattern, onDismiss}) =>
-  <div>
+  <div className="table">
     {list.filter(isSearched(pattern)).map(item =>
-      <div key={item.objectID}>
+      <div key={item.objectID} className="table-row">
         <span>
           <a href={item.url}>{item.title}</a>
-        </span><br/>
-        <span>{item.author}</span><br/>
-        <span>Comments:{item.num_comments}</span><br/>
-        <span>Points:{item.points}</span><br/>
+        </span>
+        <span>{item.author}</span>
+        <span>Comments:{item.num_comments}</span>
+        <span>Points:{item.points}</span>
         <span>
-          <Button onClick={() => onDismiss(item.objectID)}>
+          <Button
+            onClick={() => onDismiss(item.objectID)}
+            className="button-inline"
+          >
             Dismiss
           </Button>
         </span>
