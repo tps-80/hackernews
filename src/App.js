@@ -224,4 +224,4 @@ export {
   Button,
   Search,
   Table,
-};
+}
