@@ -189,6 +189,11 @@ const Button = ({
   }
 
 class Search extends Component {
+  componentDidMount() {
+    if (this.input) {
+      this.input.focus();
+    }
+  }
   render() {
     const {
       value,
@@ -199,14 +204,15 @@ class Search extends Component {
 
     return (
       <form onSubmit={onSubmit}>
-      <input
-      type="text"
-      value={value}
-      onChange={onChange}
-      />
-      <button type="submit">
-      {children}
-      </button>
+        <input
+        type="text"
+        value={value}
+        onChange={onChange}
+        ref={el => this.input = el}
+        />
+        <button type="submit">
+        {children}
+        </button>
       </form>
     );
   }
