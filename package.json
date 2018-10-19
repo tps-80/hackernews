@@ -5,6 +5,7 @@
   "dependencies": {
     "ajv": "^6.5.4",
     "axios": "^0.18.0",
+    "prop-types": "^15.6.2",
     "react": "^16.5.2",
     "react-dom": "^16.5.2",
     "react-scripts": "2.0.4"
@@ -25,6 +26,9 @@
     "not op_mini all"
   ],
   "devDependencies": {
+    "enzyme": "^3.7.0",
+    "enzyme-adapter-react-16": "^1.6.0",
+    "react-addons-test-utils": "^15.6.2",
     "react-test-renderer": "^16.5.2"
   }
 }

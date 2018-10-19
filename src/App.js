@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import PropTypes from 'prop-types';
 import './App.css';
 
 const DEFAULT_QUERY = 'redux';
@@ -164,7 +165,11 @@ class App extends Component {
   }
 }
 
-const Button = ({ onClick, className = '', children,}) =>
+const Button = ({
+  onClick,
+  className,
+  children,
+}) =>
   <button
     onClick={onClick}
     className={className}
@@ -173,22 +178,39 @@ const Button = ({ onClick, className = '', children,}) =>
     {children}
   </button>
 
-const Search = ({
-  value,
-  onChange,
-  onSubmit,
-  children
-}) =>
-  <form onSubmit={onSubmit}>
-    <input
+  Button.defaultProps = {
+    className: '',
+  };
+
+  Button.propTypes = {
+    onClick: PropTypes.func.isRequired,
+    className: PropTypes.string,
+    children: PropTypes.node.isRequired,
+  }
+
+class Search extends Component {
+  render() {
+    const {
+      value,
+      onChange,
+      onSubmit,
+      children
+    } = this.props;
+
+    return (
+      <form onSubmit={onSubmit}>
+      <input
       type="text"
       value={value}
       onChange={onChange}
-    />
-    <button type="submit">
+      />
+      <button type="submit">
       {children}
-    </button>
-  </form>
+      </button>
+      </form>
+    );
+  }
+}
 
 const Table = ({ list, onDismiss}) =>
   <div className="table">
@@ -217,6 +239,10 @@ const Table = ({ list, onDismiss}) =>
       </div>
     )}
   </div>
+  Table.propTypes = {
+    list: PropTypes.array.isRequired,
+    onDismiss: PropTypes.func.isRequired,
+  };
 
 export default App;
 
