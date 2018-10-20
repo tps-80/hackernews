@@ -268,8 +268,9 @@ const Table = ({
         <Sort
           sortKey={'TITLE'}
           onSort={onSort}
-        > Title
-            </Sort>
+        >
+          Title
+        </Sort>
           </span>
           <span style={{ width: '30%' }}>
             <Sort
