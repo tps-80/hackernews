@@ -26,7 +26,7 @@ const smallColumn = {
   width: '10%',
 };
 
-const Loading = () => <div><FontAwesomeIcon icon="spinner"/></div>
+
 
 class App extends Component {
   _isMounted = false;
@@ -168,14 +168,12 @@ class App extends Component {
             onDismiss={this.onDismiss}
         />}
         <div className="interactions">
-          { isLoading
-            ? <Loading />
-            : <Button
-                onClick={() => this.fetchSearchTopStories(searchKey, page + 1)}
-              >
-              More
-            </Button>
-          }
+          <ButtonWithLoading
+            isLoading={isLoading}
+            onClick={() => this.fetchSearchTopStories(searchKey, page + 1)}
+          >
+            More
+          </ButtonWithLoading>
         </div>
       </div>
     );
@@ -266,6 +264,15 @@ const Table = ({ list, onDismiss}) =>
     list: PropTypes.array.isRequired,
     onDismiss: PropTypes.func.isRequired,
   };
+
+const Loading = () => <div><FontAwesomeIcon icon="spinner"/></div>
+
+const withLoading = (Component) => ({ isLoading, ...rest}) =>
+  isLoading
+    ? <Loading />
+    : <Component { ...rest } />
+
+const ButtonWithLoading = withLoading(Button);
 
 export default App;
 
