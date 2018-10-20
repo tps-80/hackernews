@@ -60,9 +60,9 @@
 }
 .button-inline {
   border-width: 0;
-  background: transparent;
+  background: burlywood;
   color: inherit;
-  text-align: inherit; -webkit-font-smoothing: inherit; padding: 0;
+  text-align: inherit; -webkit-font-smoothing: inherit; padding: 2;
   font-size: inherit;
   cursor: pointer;
 }
