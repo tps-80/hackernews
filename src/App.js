@@ -253,13 +253,27 @@ class Search extends Component {
   }
 }
 
-const Sort = ({ sortKey, onSort, children }) =>
-  <Button
-    onClick={() => onSort(sortKey)}
-    className="button-inline"
-  >
-    {children}
-  </Button>
+const Sort = ({
+  sortKey,
+  activeSortKey,
+  onSort,
+  children
+}) => {
+  const sortClass = ['button-inline'];
+
+  if (sortKey === activeSortKey) {
+    sortClass.push('button-active');
+  }
+
+  return (
+    <Button
+      onClick={() => onSort(sortKey)}
+      className={sortClass.join(' ')}
+    >
+      {children}
+    </Button>
+  )
+}
 
 const Table = ({
   list,
