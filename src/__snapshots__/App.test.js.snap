@@ -43,7 +43,9 @@ exports[`Table has a valid snapshot 1`] = `
         onClick={[Function]}
         type="button"
       >
-        Title
+        <div>
+          Title
+        </div>
       </button>
     </span>
     <span

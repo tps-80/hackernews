@@ -7,8 +7,10 @@ import './App.css';
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faSpinner } from '@fortawesome/free-solid-svg-icons'
+import { faArrowUp } from '@fortawesome/free-solid-svg-icons'
+import { faArrowDown } from '@fortawesome/free-solid-svg-icons'
 
-library.add(faSpinner)
+library.add(faSpinner, faArrowUp, faArrowDown)
 
 const DEFAULT_QUERY = 'redux';
 const DEFAULT_HPP = '100';
@@ -294,7 +296,7 @@ const Table = ({
             onSort={onSort}
             activeSortKey={sortKey}
           >
-            Title
+            <div>Title <FontAwesomeIcon icon="arrow-down"/></div>
           </Sort>
             </span>
             <span style={{ width: '30%' }}>
