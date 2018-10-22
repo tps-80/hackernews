@@ -287,6 +287,11 @@ const Table = ({
   const reverseSortedList = isSortReverse
     ? sortedList.reverse()
     : sortedList;
+  const arrowDirection = isSortReverse
+    ? "arrow-down"
+    : "arrow-up";
+    // TODO:  this still moves the arrow for all columns - should be unique to column
+
   return(
     <div className="table">
       <div className="table-header">
@@ -296,7 +301,12 @@ const Table = ({
             onSort={onSort}
             activeSortKey={sortKey}
           >
-            <div>Title <FontAwesomeIcon icon="arrow-down"/></div>
+            <div>
+              Title
+              <FontAwesomeIcon
+                icon= {arrowDirection}
+              />
+            </div>
           </Sort>
             </span>
             <span style={{ width: '30%' }}>
@@ -305,7 +315,12 @@ const Table = ({
                 onSort={onSort}
                 activeSortKey={sortKey}
               >
-                Author
+                <div>
+                  Author
+                  <FontAwesomeIcon
+                    icon= {arrowDirection}
+                  />
+                </div>
               </Sort>
             </span>
         <span style={{ width: '10%' }}>
@@ -314,8 +329,12 @@ const Table = ({
             onSort={onSort}
             activeSortKey={sortKey}
           >
-          Comments
-          </Sort>
+          <div>
+            Comments
+            <FontAwesomeIcon
+              icon= {arrowDirection}
+            />
+          </div>          </Sort>
         </span>
         <span style={{ width: '10%' }}>
           <Sort
@@ -323,7 +342,12 @@ const Table = ({
             onSort={onSort}
             activeSortKey={sortKey}
           >
-           Points
+          <div>
+            Points
+            <FontAwesomeIcon
+              icon= {arrowDirection}
+            />
+          </div>
           </Sort>
         </span>
         <span style={{ width: '10%' }}>
@@ -359,7 +383,7 @@ const Table = ({
 }
   Table.propTypes = {
     list: PropTypes.array.isRequired,
-    onDismiss: PropTypes.func.isRequired,
+    onDismiss: PropTypes.func,
   };
 
 const Loading = () => <div><FontAwesomeIcon icon="spinner"/></div>
