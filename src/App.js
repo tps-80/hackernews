@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import { sortBy } from 'lodash';
+import classNames from 'classnames';
 import PropTypes from 'prop-types';
 import './App.css';
 import { library } from '@fortawesome/fontawesome-svg-core'
@@ -218,7 +219,7 @@ const Button = ({
   };
 
   Button.propTypes = {
-    onClick: PropTypes.func.isRequired,
+    onClick: PropTypes.func,
     className: PropTypes.string,
     children: PropTypes.node.isRequired,
   }
@@ -259,20 +260,18 @@ const Sort = ({
   onSort,
   children
 }) => {
-  const sortClass = ['button-inline'];
-
-  if (sortKey === activeSortKey) {
-    sortClass.push('button-active');
-  }
-
+  const sortClass = classNames(
+    'button-inline',
+    { 'button-active': sortKey === activeSortKey }
+  );
   return (
-    <Button
-      onClick={() => onSort(sortKey)}
-      className={sortClass.join(' ')}
-    >
-      {children}
-    </Button>
-  )
+      <Button
+        onClick={() => onSort(sortKey)}
+        className={sortClass}
+      >
+        {children}
+      </Button>
+  );
 }
 
 const Table = ({
