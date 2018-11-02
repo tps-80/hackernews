@@ -39,7 +39,7 @@ exports[`Table has a valid snapshot 1`] = `
       }
     >
       <button
-        className="button-inline button-active"
+        className="button-inline"
         onClick={[Function]}
         type="button"
       >
@@ -67,7 +67,7 @@ exports[`Table has a valid snapshot 1`] = `
     <span
       style={
         Object {
-          "width": "30%",
+          "width": "25%",
         }
       }
     >
@@ -100,7 +100,7 @@ exports[`Table has a valid snapshot 1`] = `
     <span
       style={
         Object {
-          "width": "10%",
+          "width": "15%",
         }
       }
     >
@@ -128,7 +128,6 @@ exports[`Table has a valid snapshot 1`] = `
             />
           </svg>
         </div>
-                  
       </button>
     </span>
     <span
