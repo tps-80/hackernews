@@ -309,7 +309,7 @@ const Table = ({
             </div>
           </Sort>
             </span>
-            <span style={{ width: '30%' }}>
+            <span style={{ width: '25%' }}>
               <Sort
                 sortKey={'AUTHOR'}
                 onSort={onSort}
@@ -323,7 +323,7 @@ const Table = ({
                 </div>
               </Sort>
             </span>
-        <span style={{ width: '10%' }}>
+        <span style={{ width: '15%' }}>
           <Sort
             sortKey={'COMMENTS'}
             onSort={onSort}
@@ -334,7 +334,8 @@ const Table = ({
             <FontAwesomeIcon
               icon= {arrowDirection}
             />
-          </div>          </Sort>
+          </div>          
+          </Sort>
         </span>
         <span style={{ width: '10%' }}>
           <Sort
