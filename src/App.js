@@ -318,21 +318,21 @@ class Table extends Component {
                 />
               </div>
             </Sort>
-              </span>
-              <span style={{ width: '25%' }}>
-                <Sort
-                  sortKey={'AUTHOR'}
-                  onSort={this.onSort}
-                  activeSortKey={sortKey}
-                >
-                  <div>
-                    Author
-                    <FontAwesomeIcon
-                      icon= {arrowDirection}
-                    />
-                  </div>
-                </Sort>
-              </span>
+          </span>
+          <span style={{ width: '25%' }}>
+            <Sort
+              sortKey={'AUTHOR'}
+              onSort={this.onSort}
+              activeSortKey={sortKey}
+            >
+              <div>
+                Author
+                <FontAwesomeIcon
+                  icon= {arrowDirection}
+                />
+              </div>
+            </Sort>
+          </span>
           <span style={{ width: '15%' }}>
             <Sort
               sortKey={'COMMENTS'}
@@ -394,10 +394,10 @@ class Table extends Component {
   }
 }
 
-  Table.propTypes = {
-    list: PropTypes.array.isRequired,
-    onDismiss: PropTypes.func,
-  };
+Table.propTypes = {
+  list: PropTypes.array.isRequired,
+  onDismiss: PropTypes.func,
+};
 
 const Loading = () => <div><FontAwesomeIcon icon="spinner"/></div>
 
