@@ -45,9 +45,9 @@ class App extends Component {
     super(props);
 
     this.state = {
+      searchTerm: DEFAULT_QUERY,
       results: null,
       searchKey: '',
-      searchTerm: DEFAULT_QUERY,
       error: null,
       isLoading: false,
     };
@@ -135,8 +135,6 @@ class App extends Component {
       searchKey,
       error,
       isLoading,
-      sortKey,
-      isSortReverse
     } = this.state;
 
     const page = (
@@ -178,9 +176,6 @@ class App extends Component {
             </div>
           : <Table
             list={list}
-            sortKey={sortKey}
-            isSortReverse={isSortReverse}
-            onSort={this.onSort}
             onDismiss={this.onDismiss}
         />}
         <div className="interactions">
@@ -277,6 +272,8 @@ class Table extends Component {
       sortKey: 'NONE',
       isSortReverse: false,
     };
+
+    this.onSort = this.onSort.bind(this);
   }
 
   onSort(sortKey) {
@@ -287,11 +284,14 @@ class Table extends Component {
   render() {
     const {
       list,
-      sortKey,
-      isSortReverse,
       onSort,
       onDismiss
     } = this.props;
+
+    const {
+      sortKey,
+      isSortReverse,
+    } = this.state;
  
     const sortedList = SORTS[this.state.sortKey](list);
     const reverseSortedList = isSortReverse
@@ -308,7 +308,7 @@ class Table extends Component {
           <span style={{ width: '40%' }}>
             <Sort
               sortKey={'TITLE'}
-              onSort={onSort}
+              onSort={this.onSort}
               activeSortKey={sortKey}
             >
               <div>
@@ -322,7 +322,7 @@ class Table extends Component {
               <span style={{ width: '25%' }}>
                 <Sort
                   sortKey={'AUTHOR'}
-                  onSort={onSort}
+                  onSort={this.onSort}
                   activeSortKey={sortKey}
                 >
                   <div>
@@ -336,7 +336,7 @@ class Table extends Component {
           <span style={{ width: '15%' }}>
             <Sort
               sortKey={'COMMENTS'}
-              onSort={onSort}
+              onSort={this.onSort}
               activeSortKey={sortKey}
             >
             <div>
@@ -350,7 +350,7 @@ class Table extends Component {
           <span style={{ width: '10%' }}>
             <Sort
               sortKey={'POINTS'}
-              onSort={onSort}
+              onSort={this.onSort}
               activeSortKey={sortKey}
             >
             <div>
