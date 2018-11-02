@@ -280,9 +280,12 @@ class Table extends Component {
   constructor(props) {
     super(props);
 
-    this.state = {};
+    this.state = {
+      sortKey: 'NONE',
+      isSortReverse: false,
+    };
   }
-  
+
   render() {
     const {
       list,
