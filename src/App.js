@@ -196,6 +196,22 @@ class App extends Component {
   }
 }
 
+const SortArrow = ({
+  sortDirection,
+}) => 
+  <div>
+  Some text
+    <FontAwesomeIcon icon= {sortDirection}/>
+  </div>
+
+  SortArrow.defaultProps = {
+    sortDirection: 'up-arrow',
+  };
+
+  SortArrow.propTypes = {
+    sortDirection: PropTypes.string,
+  }
+
 const Button = ({
   onClick,
   className,
@@ -223,6 +239,7 @@ class Search extends Component {
   componentDidMount() {
     if (this.input) {
       this.input.focus();
+
     }
   }
   render() {
@@ -332,9 +349,7 @@ class Table extends Component {
             >
               <div>
                 Author
-                <FontAwesomeIcon
-                  icon= {arrowDirection}
-                />
+                <SortArrow sortDirection={arrowDirection}/>
               </div>
             </Sort>
           </span>
@@ -403,6 +418,29 @@ Table.propTypes = {
   list: PropTypes.array.isRequired,
   onDismiss: PropTypes.func,
 };
+
+// const Button = ({
+//   onClick,
+//   className,
+//   children,
+// }) =>
+//   <button
+//     onClick={onClick}
+//     className={className}
+//     type="button"
+//   >
+//     {children}
+//   </button>
+
+//   Button.defaultProps = {
+//     className: '',
+//   };
+
+//   Button.propTypes = {
+//     onClick: PropTypes.func,
+//     className: PropTypes.string,
+//     children: PropTypes.node.isRequired,
+//   }
 
 const Loading = () => <div><FontAwesomeIcon icon="spinner"/></div>
 
