@@ -310,7 +310,7 @@ class Table extends Component {
     return(
       <div className="table">
         <div className="table-header">
-          <span style={{ width: '40%' }}>
+          <span style={largeColumn}>
             <Sort
               sortKey={'TITLE'}
               onSort={this.onSort}
@@ -352,7 +352,7 @@ class Table extends Component {
             </div>          
             </Sort>
           </span>
-          <span style={{ width: '10%' }}>
+          <span style={smallColumn}>
             <Sort
               sortKey={'POINTS'}
               onSort={this.onSort}
@@ -366,7 +366,7 @@ class Table extends Component {
             </div>
             </Sort>
           </span>
-          <span style={{ width: '10%' }}>
+          <span style={smallColumn}>
             Archive
           </span>
         </div>
