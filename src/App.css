@@ -60,7 +60,7 @@
 }
 .button-inline {
   border-width: 0;
-  background: burlywood;
+  background: lightgray;
   color: inherit;
   text-align: inherit; -webkit-font-smoothing: inherit; padding: 2;
   font-size: inherit;
